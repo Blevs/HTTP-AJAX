@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Home from './scenes/Home';
 import Add from './scenes/Add';
 import Edit from './scenes/Edit';
@@ -67,7 +67,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header><NavLink to="/">Home</NavLink><NavLink to="/add">Add Friend</NavLink></header>
         <Route exact path="/" render={props => <Home {...props}
                                                      friends={this.state.friends}
                                                      handleRemove={this.removeFriend}

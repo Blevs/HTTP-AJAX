@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
 import Home from './scenes/Home';

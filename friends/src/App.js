@@ -34,11 +34,18 @@ class App extends Component {
       .then(_ => this.getFriends())
       .catch(error => console.log(error));
   };
+  removeFriend = id => {
+    axios.delete(`http://localhost:5000/friends/${id}`)
+      .then(_ => this.getFriends())
+      .catch(error => console.log(error));
+  };
   render() {
     return (
       <div className="App">
         <header><NavLink to="/">Home</NavLink><NavLink to="/add">Add Friend</NavLink></header>
-        <Route exact path="/" render={props => <Home {...props} friends={this.state.friends} />}/>
+        <Route exact path="/" render={props => <Home {...props}
+                                                     friends={this.state.friends}
+                                                     handleRemove={this.removeFriend} />}/>
         <Route path="/add" render={props => <Add {...props} onSubmit={this.addFriend} />}/>
       </div>
     );

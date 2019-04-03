@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import FriendCard from './components/FriendCard';
 import FriendForm from './components/FriendForm';
+import { Route, NavLink } from 'react-router-dom';
+import Home from './scenes/Home';
+import Add from './scenes/Add';
 
 class App extends Component {
   constructor() {
@@ -31,10 +33,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Test</h1>
-        {this.state.friends
-         && this.state.friends.map(f => <FriendCard key={f.id} friend={f} />)}
-        <FriendForm onSubmit={this.addFriend} buttonText="Add Friend"/>
+        <header><NavLink to="/">Home</NavLink><NavLink to="/add">Add Friend</NavLink></header>
+        <Route exact path="/" render={props => <Home {...props} friends={this.state.friends} />}/>
+        <Route path="/add" render={props => <Add {...props} onSubmit={this.addFriend} />}/>
       </div>
     );
   }

@@ -1,0 +1,14 @@
+.home {
+  position: relative;
+  .add {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    svg g path {
+      transition: fill 0.3s;
+    }
+    &:hover svg g path:first-child {
+      fill: green !important;
+    }
+  }
+}

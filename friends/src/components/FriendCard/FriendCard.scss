@@ -1,0 +1,65 @@
+.friend-card {
+  position: relative;
+  margin: 20px 0;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to left, white, lightgrey, white);
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+  padding: 10px 5px;
+  h3 {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  h4 {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    font-size: 0.8rem;
+    color: grey;
+  }
+  h5 {
+    margin: 5px 0;
+    font-weight: normal;
+  }
+  .remove, .edit {
+    position: absolute;
+    top: 0;
+    transition: color 0.3s, opacity 0.3s;
+    cursor: pointer;
+    opacity: 0;
+  }
+  &:hover > .remove, &:hover > .edit {
+    opacity: 1;
+  }
+  .remove {
+    right: 0;
+    font-size: 1.8rem;
+    color: red;
+    &:hover {
+      color: darken(red, 10);
+    }
+  }
+  .edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    svg path {
+      fill: green;
+    }
+    &:hover {
+      svg path {
+        color: darken(green, 10);
+      }
+    }
+  }
+}

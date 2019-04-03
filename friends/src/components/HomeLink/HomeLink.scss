@@ -1,0 +1,25 @@
+.home-link {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+  animation: fadein 0.2s;
+  &:hover {
+    color: #505050;
+  }
+  &.active {
+    display: none;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

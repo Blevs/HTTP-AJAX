@@ -1,8 +1,9 @@
 import React from 'react';
+import './FriendForm.scss';
 
 const FriendForm = ({onSubmit, buttonText, handleInput, values}) => {
   return (
-    <form onSubmit={onSubmit}>
+    <form className="friend-form" onSubmit={onSubmit}>
       <input type="text"
              name="name"
              placeholder="name"

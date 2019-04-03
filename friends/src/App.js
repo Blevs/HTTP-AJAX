@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Home from './scenes/Home';
 import Add from './scenes/Add';
 import Edit from './scenes/Edit';
+import HomeLink from './components/HomeLink';
 
 class App extends Component {
   constructor() {
@@ -67,6 +68,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <HomeLink/>
         <Route exact path="/" render={props => <Home {...props}
                                                      friends={this.state.friends}
                                                      handleRemove={this.removeFriend}

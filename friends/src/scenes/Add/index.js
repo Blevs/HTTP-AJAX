@@ -1,11 +1,14 @@
 import React from 'react';
 import FriendForm from '../../components/FriendForm';
 
-const Add = ({onSubmit}) => {
+const Add = ({onSubmit, handleInput, values}) => {
   return (
     <div>
       <h1>Add Friend</h1>
-      <FriendForm onSubmit={onSubmit} buttonText="Add Friend"/>
+      <FriendForm onSubmit={onSubmit}
+                  buttonText="Add Friend"
+                  handleInput={handleInput}
+                  values={values }/>
     </div>
   );
 };

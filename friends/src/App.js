@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import FriendForm from './components/FriendForm';
 import { Route, NavLink } from 'react-router-dom';
 import Home from './scenes/Home';
 import Add from './scenes/Add';
+
+const extractSubmitValues = event => {
+  const values = {};
+  event.target.querySelectorAll('input').forEach(elem => values[elem.name] = elem.value);
+  return values;
+};
 
 class App extends Component {
   constructor() {
@@ -23,8 +28,7 @@ class App extends Component {
   }
   addFriend = event => {
     event.preventDefault();
-    const friend = {};
-    event.target.querySelectorAll('input').forEach(e => friend[e.name] = e.value);
+    const friend = extractSubmitValues(event);
     friend.name && friend.age && friend.email
       && axios.post('http://localhost:5000/friends', friend)
       .then(_ => this.getFriends())
